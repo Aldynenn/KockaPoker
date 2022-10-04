@@ -14,8 +14,10 @@ namespace KockaPoker
     public partial class Form1 : Form
     {
         List<PictureBox> jatekosKepek = new List<PictureBox>();
+        List<PictureBox> gepKepek = new List<PictureBox>();
 
         Jatekos j;
+        Gep g;
 
         public Form1()
         {
@@ -27,27 +29,20 @@ namespace KockaPoker
             jatekosKepek.Add(pbElsoJ4);
             jatekosKepek.Add(pbElsoJ5);
 
+            gepKepek.Add(pbMadosikJ1);
+            gepKepek.Add(pbMadosikJ2);
+            gepKepek.Add(pbMadosikJ3);
+            gepKepek.Add(pbMadosikJ4);
+            gepKepek.Add(pbMadosikJ5);
+
             j = new Jatekos("Szerencsés Pista", jatekosKepek);
-
-            pbElsoJ1.Image = Properties.Resources.k1;
-            pbElsoJ2.Image = Properties.Resources.k2;
-            pbElsoJ3.Image = Properties.Resources.k3;
-            pbElsoJ4.Image = Properties.Resources.k4;
-            pbElsoJ5.Image = Properties.Resources.k5;
-
-            pbMadosikJ1.Image = Properties.Resources.z1;
-            pbMadosikJ2.Image = Properties.Resources.z2;
-            pbMadosikJ3.Image = Properties.Resources.z3;
-            pbMadosikJ4.Image = Properties.Resources.z4;
-            pbMadosikJ5.Image = Properties.Resources.z5;
+            g = new Gep("Gép", gepKepek);
+            j.KepekBeallitasa();
+            g.KepekBeallitasa();
         }
 
         private void btnKilepes_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(j.ToString());
-            j.UjLeosztas();
-            MessageBox.Show(j.ToString());
-
             Application.Exit();
         }
     }

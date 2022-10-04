@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SajatOsztalyok\Gep.cs" />
     <Compile Include="SajatOsztalyok\Jatekos.cs" />
     <Compile Include="SajatOsztalyok\Leosztas.cs" />
     <EmbeddedResource Include="Form1.resx">

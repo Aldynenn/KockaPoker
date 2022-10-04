@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace KockaPoker.SajatOsztalyok
 {
-    class Jatekos
+    public class Jatekos
     {
-        List<PictureBox> kockaKepek = new List<PictureBox>();
+        protected List<PictureBox> kockaKepek = new List<PictureBox>();
 
 
         private string nev;
@@ -20,7 +20,7 @@ namespace KockaPoker.SajatOsztalyok
             set { nev = value; }
         }
 
-        private Leosztas kockak = new Leosztas();
+        protected Leosztas kockak = new Leosztas();
 
         public Leosztas Kockak
         {
@@ -41,6 +41,34 @@ namespace KockaPoker.SajatOsztalyok
         public void UjLeosztas()
         {
             kockak.UjLeosztas();
+        }
+
+        public void KepekBeallitasa()
+        {
+            int i = 0;
+            foreach (var k in kockaKepek)
+            {
+                switch (kockak.MilyenErtek(i++))
+                {
+                    case 1:
+                        k.Image = Properties.Resources.k1;
+                        break;
+                    case 2:
+                        k.Image = Properties.Resources.k2;
+                        break;
+                    case 3:
+                        k.Image = Properties.Resources.k3;
+                        break;
+                    case 4:
+                        k.Image = Properties.Resources.k4;
+                        break;
+                    case 5:
+                        k.Image = Properties.Resources.k5;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
