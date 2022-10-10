@@ -12,6 +12,7 @@ namespace KockaPoker.SajatOsztalyok
         public Gep(string nev, List<PictureBox> kockakepek) : base (nev, kockakepek)
         {
         }
+
         public void KepekBeallitasa()
         {
             int i = 0;
