@@ -23,6 +23,52 @@ namespace KockaPoker
         {
             InitializeComponent();
 
+            PictureBoxokBeallitasa();
+            //JatekosokBeallitasa();
+
+            VezerlokBeallitasa();
+            //Kiertekeles();
+        }
+
+        private void Kiertekeles()
+        {
+            lblJatekosErtek.Text = $"1. játékos: {j.LeosztasErteke}";
+            lblGepErtek.Text = $"2. játékos: {g.LeosztasErteke}";
+            if (j.Pont > g.Pont)
+            {
+                MessageBox.Show("Ember nyert");
+            }
+            else if (j.Pont < g.Pont)
+            {
+                MessageBox.Show("Gép nyert");
+            }
+            else
+            {
+                MessageBox.Show("Döntetlen");
+            }
+        }
+
+        private void VezerlokBeallitasa()
+        {
+            lblGepErtek.Text = "";
+            lblJatekosErtek.Text = "";
+            lblMenetSzam.Text = "";
+            lblJGyozelem.Text = "Játékos: 0";
+            lblGGyozelem.Text = "Gép:     0";
+        }
+
+        private void JatekosokBeallitasa()
+        {
+            //List<int> kocka = new List<int>() { 2, 2, 3, 3, 4 };
+            j = new Jatekos("Szerencsés Pista", jatekosKepek);
+            //j.LeosztasBeallitasa(kocka);
+            g = new Gep("Gép", gepKepek);
+            j.KepekBeallitasa();
+            g.KepekBeallitasa();
+        }
+
+        private void PictureBoxokBeallitasa()
+        {
             jatekosKepek.Add(pbElsoJ1);
             jatekosKepek.Add(pbElsoJ2);
             jatekosKepek.Add(pbElsoJ3);
@@ -34,11 +80,6 @@ namespace KockaPoker
             gepKepek.Add(pbMadosikJ3);
             gepKepek.Add(pbMadosikJ4);
             gepKepek.Add(pbMadosikJ5);
-
-            j = new Jatekos("Szerencsés Pista", jatekosKepek);
-            g = new Gep("Gép", gepKepek);
-            j.KepekBeallitasa();
-            g.KepekBeallitasa();
         }
 
         private void btnKilepes_Click(object sender, EventArgs e)

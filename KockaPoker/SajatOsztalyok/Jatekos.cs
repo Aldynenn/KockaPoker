@@ -10,9 +10,8 @@ namespace KockaPoker.SajatOsztalyok
     public class Jatekos
     {
         protected List<PictureBox> kockaKepek = new List<PictureBox>();
-
-
         private string nev;
+        protected Leosztas leosztas = new Leosztas();
 
         public string Nev
         {
@@ -20,16 +19,9 @@ namespace KockaPoker.SajatOsztalyok
             set { nev = value; }
         }
 
-        protected Leosztas kockak = new Leosztas();
-
         public Leosztas Kockak
         {
-            get { return kockak; }
-        }
-
-        public override string ToString()
-        {
-            return $"{Nev} - {kockak.ToString()}";
+            get { return leosztas; }
         }
 
         public Jatekos(string nev, List<PictureBox> kockaKepek)
@@ -40,7 +32,7 @@ namespace KockaPoker.SajatOsztalyok
 
         public void UjLeosztas()
         {
-            kockak.UjLeosztas();
+            leosztas.UjLeosztas();
         }
 
         public void KepekBeallitasa()
@@ -48,7 +40,7 @@ namespace KockaPoker.SajatOsztalyok
             int i = 0;
             foreach (var k in kockaKepek)
             {
-                switch (kockak.MilyenErtek(i++))
+                switch (leosztas.MilyenErtek(i++))
                 {
                     case 1:
                         k.Image = Properties.Resources.k1;
@@ -65,10 +57,31 @@ namespace KockaPoker.SajatOsztalyok
                     case 5:
                         k.Image = Properties.Resources.k5;
                         break;
+                    case 6:
+                        k.Image = Properties.Resources.k6;
+                        break;
                     default:
                         break;
                 }
             }
+        }
+        public override string ToString()
+        {
+            return $"{Nev} - {leosztas.ToString()}";
+        }
+
+        public void LeosztasBeallitasa(List<int> kockak)
+        {
+            leosztas.LeosztasBeallitasa(kockak);
+        }
+
+        public string LeosztasErteke { 
+            get { return leosztas.LeosztasErteke(); } 
+        }
+
+        public int Pont
+        {
+            get { return leosztas.Pont; }
         }
     }
 }

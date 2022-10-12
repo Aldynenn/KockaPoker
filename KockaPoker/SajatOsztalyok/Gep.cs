@@ -18,7 +18,7 @@ namespace KockaPoker.SajatOsztalyok
             int i = 0;
             foreach (var k in kockaKepek)
             {
-                switch (kockak.MilyenErtek(i++))
+                switch (leosztas.MilyenErtek(i++))
                 {
                     case 1:
                         k.Image = Properties.Resources.z1;
@@ -34,6 +34,9 @@ namespace KockaPoker.SajatOsztalyok
                         break;
                     case 5:
                         k.Image = Properties.Resources.z5;
+                        break;
+                    case 6:
+                        k.Image = Properties.Resources.z6;
                         break;
                     default:
                         break;
