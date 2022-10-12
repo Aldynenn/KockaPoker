@@ -46,9 +46,13 @@ namespace KockaPoker
             this.lblGepErtek = new System.Windows.Forms.Label();
             this.lblJatekosErtek = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblMenetSzam = new System.Windows.Forms.Label();
-            this.lblJGyozelem = new System.Windows.Forms.Label();
             this.lblGGyozelem = new System.Windows.Forms.Label();
+            this.lblJGyozelem = new System.Windows.Forms.Label();
+            this.lblMenetSzam = new System.Windows.Forms.Label();
+            this.btnUjJatek = new System.Windows.Forms.Button();
+            this.btnKovetkezoMenet = new System.Windows.Forms.Button();
+            this.lblKijelzo = new System.Windows.Forms.Label();
+            this.lblDontetlen = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbElsoJ5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbElsoJ4)).BeginInit();
@@ -67,10 +71,16 @@ namespace KockaPoker
             // 
             // btnKilepes
             // 
-            this.btnKilepes.BackColor = System.Drawing.Color.White;
-            this.btnKilepes.Location = new System.Drawing.Point(682, 12);
+            this.btnKilepes.BackColor = System.Drawing.Color.Transparent;
+            this.btnKilepes.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral;
+            this.btnKilepes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnKilepes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.btnKilepes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKilepes.Font = new System.Drawing.Font("Consolas", 12F);
+            this.btnKilepes.ForeColor = System.Drawing.Color.LightCoral;
+            this.btnKilepes.Location = new System.Drawing.Point(645, 22);
             this.btnKilepes.Name = "btnKilepes";
-            this.btnKilepes.Size = new System.Drawing.Size(190, 33);
+            this.btnKilepes.Size = new System.Drawing.Size(227, 33);
             this.btnKilepes.TabIndex = 0;
             this.btnKilepes.Text = "Kilépés";
             this.btnKilepes.UseVisualStyleBackColor = false;
@@ -78,12 +88,14 @@ namespace KockaPoker
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.pbElsoJ5);
             this.groupBox1.Controls.Add(this.pbElsoJ4);
             this.groupBox1.Controls.Add(this.pbElsoJ3);
             this.groupBox1.Controls.Add(this.pbElsoJ2);
             this.groupBox1.Controls.Add(this.pbElsoJ1);
+            this.groupBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.ForeColor = System.Drawing.Color.LightBlue;
             this.groupBox1.Location = new System.Drawing.Point(12, 333);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(386, 102);
@@ -138,12 +150,14 @@ namespace KockaPoker
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.pbMadosikJ5);
             this.groupBox2.Controls.Add(this.pbMadosikJ4);
             this.groupBox2.Controls.Add(this.pbMadosikJ3);
             this.groupBox2.Controls.Add(this.pbMadosikJ2);
             this.groupBox2.Controls.Add(this.pbMadosikJ1);
+            this.groupBox2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.ForeColor = System.Drawing.Color.LightGreen;
             this.groupBox2.Location = new System.Drawing.Point(12, 447);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(386, 102);
@@ -198,9 +212,11 @@ namespace KockaPoker
             // 
             // gbDobasokErtekei
             // 
-            this.gbDobasokErtekei.BackColor = System.Drawing.SystemColors.Control;
+            this.gbDobasokErtekei.BackColor = System.Drawing.Color.Transparent;
             this.gbDobasokErtekei.Controls.Add(this.lblGepErtek);
             this.gbDobasokErtekei.Controls.Add(this.lblJatekosErtek);
+            this.gbDobasokErtekei.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.gbDobasokErtekei.ForeColor = System.Drawing.Color.White;
             this.gbDobasokErtekei.Location = new System.Drawing.Point(12, 12);
             this.gbDobasokErtekei.Name = "gbDobasokErtekei";
             this.gbDobasokErtekei.Size = new System.Drawing.Size(386, 188);
@@ -211,62 +227,130 @@ namespace KockaPoker
             // lblGepErtek
             // 
             this.lblGepErtek.AutoSize = true;
+            this.lblGepErtek.Font = new System.Drawing.Font("Consolas", 12F);
+            this.lblGepErtek.ForeColor = System.Drawing.Color.LightGreen;
             this.lblGepErtek.Location = new System.Drawing.Point(6, 72);
             this.lblGepErtek.Name = "lblGepErtek";
-            this.lblGepErtek.Size = new System.Drawing.Size(93, 20);
+            this.lblGepErtek.Size = new System.Drawing.Size(108, 19);
             this.lblGepErtek.TabIndex = 0;
             this.lblGepErtek.Text = "lblGepErtek";
             // 
             // lblJatekosErtek
             // 
             this.lblJatekosErtek.AutoSize = true;
+            this.lblJatekosErtek.Font = new System.Drawing.Font("Consolas", 12F);
+            this.lblJatekosErtek.ForeColor = System.Drawing.Color.LightBlue;
             this.lblJatekosErtek.Location = new System.Drawing.Point(6, 38);
             this.lblJatekosErtek.Name = "lblJatekosErtek";
-            this.lblJatekosErtek.Size = new System.Drawing.Size(118, 20);
+            this.lblJatekosErtek.Size = new System.Drawing.Size(144, 19);
             this.lblJatekosErtek.TabIndex = 0;
             this.lblJatekosErtek.Text = "lblJatekosErtek";
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.lblDontetlen);
             this.groupBox3.Controls.Add(this.lblGGyozelem);
             this.groupBox3.Controls.Add(this.lblJGyozelem);
             this.groupBox3.Controls.Add(this.lblMenetSzam);
-            this.groupBox3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox3.Location = new System.Drawing.Point(682, 56);
+            this.groupBox3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(645, 66);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(190, 305);
+            this.groupBox3.Size = new System.Drawing.Size(227, 224);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Menet számláló";
             // 
-            // lblMenetSzam
+            // lblGGyozelem
             // 
-            this.lblMenetSzam.AutoSize = true;
-            this.lblMenetSzam.Location = new System.Drawing.Point(6, 28);
-            this.lblMenetSzam.Name = "lblMenetSzam";
-            this.lblMenetSzam.Size = new System.Drawing.Size(63, 19);
-            this.lblMenetSzam.TabIndex = 0;
-            this.lblMenetSzam.Text = "label1";
+            this.lblGGyozelem.AutoSize = true;
+            this.lblGGyozelem.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblGGyozelem.ForeColor = System.Drawing.Color.LightGreen;
+            this.lblGGyozelem.Location = new System.Drawing.Point(6, 95);
+            this.lblGGyozelem.Name = "lblGGyozelem";
+            this.lblGGyozelem.Size = new System.Drawing.Size(63, 19);
+            this.lblGGyozelem.TabIndex = 0;
+            this.lblGGyozelem.Text = "label1";
             // 
             // lblJGyozelem
             // 
             this.lblJGyozelem.AutoSize = true;
             this.lblJGyozelem.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblJGyozelem.ForeColor = System.Drawing.Color.LightBlue;
             this.lblJGyozelem.Location = new System.Drawing.Point(6, 65);
             this.lblJGyozelem.Name = "lblJGyozelem";
             this.lblJGyozelem.Size = new System.Drawing.Size(63, 19);
             this.lblJGyozelem.TabIndex = 0;
             this.lblJGyozelem.Text = "label1";
             // 
-            // lblGGyozelem
+            // lblMenetSzam
             // 
-            this.lblGGyozelem.AutoSize = true;
-            this.lblGGyozelem.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblGGyozelem.Location = new System.Drawing.Point(6, 95);
-            this.lblGGyozelem.Name = "lblGGyozelem";
-            this.lblGGyozelem.Size = new System.Drawing.Size(63, 19);
-            this.lblGGyozelem.TabIndex = 0;
-            this.lblGGyozelem.Text = "label1";
+            this.lblMenetSzam.AutoSize = true;
+            this.lblMenetSzam.Font = new System.Drawing.Font("Consolas", 12F);
+            this.lblMenetSzam.Location = new System.Drawing.Point(6, 28);
+            this.lblMenetSzam.Name = "lblMenetSzam";
+            this.lblMenetSzam.Size = new System.Drawing.Size(63, 19);
+            this.lblMenetSzam.TabIndex = 0;
+            this.lblMenetSzam.Text = "label1";
+            // 
+            // btnUjJatek
+            // 
+            this.btnUjJatek.BackColor = System.Drawing.Color.Transparent;
+            this.btnUjJatek.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnUjJatek.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUjJatek.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUjJatek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUjJatek.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUjJatek.ForeColor = System.Drawing.Color.White;
+            this.btnUjJatek.Location = new System.Drawing.Point(422, 22);
+            this.btnUjJatek.Name = "btnUjJatek";
+            this.btnUjJatek.Size = new System.Drawing.Size(195, 33);
+            this.btnUjJatek.TabIndex = 4;
+            this.btnUjJatek.Text = "Új játék";
+            this.btnUjJatek.UseVisualStyleBackColor = false;
+            this.btnUjJatek.Click += new System.EventHandler(this.btnUjJatek_Click);
+            // 
+            // btnKovetkezoMenet
+            // 
+            this.btnKovetkezoMenet.BackColor = System.Drawing.Color.Transparent;
+            this.btnKovetkezoMenet.Enabled = false;
+            this.btnKovetkezoMenet.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnKovetkezoMenet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnKovetkezoMenet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnKovetkezoMenet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKovetkezoMenet.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnKovetkezoMenet.ForeColor = System.Drawing.Color.White;
+            this.btnKovetkezoMenet.Location = new System.Drawing.Point(422, 75);
+            this.btnKovetkezoMenet.Name = "btnKovetkezoMenet";
+            this.btnKovetkezoMenet.Size = new System.Drawing.Size(195, 33);
+            this.btnKovetkezoMenet.TabIndex = 5;
+            this.btnKovetkezoMenet.Text = "Következő menet";
+            this.btnKovetkezoMenet.UseVisualStyleBackColor = false;
+            this.btnKovetkezoMenet.Click += new System.EventHandler(this.btnKovetkezoMenet_Click);
+            // 
+            // lblKijelzo
+            // 
+            this.lblKijelzo.BackColor = System.Drawing.Color.Transparent;
+            this.lblKijelzo.Font = new System.Drawing.Font("Consolas", 40F);
+            this.lblKijelzo.ForeColor = System.Drawing.Color.White;
+            this.lblKijelzo.Location = new System.Drawing.Point(440, 342);
+            this.lblKijelzo.Name = "lblKijelzo";
+            this.lblKijelzo.Size = new System.Drawing.Size(432, 207);
+            this.lblKijelzo.TabIndex = 6;
+            this.lblKijelzo.Text = "label1";
+            this.lblKijelzo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDontetlen
+            // 
+            this.lblDontetlen.AutoSize = true;
+            this.lblDontetlen.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDontetlen.ForeColor = System.Drawing.Color.LightYellow;
+            this.lblDontetlen.Location = new System.Drawing.Point(6, 125);
+            this.lblDontetlen.Name = "lblDontetlen";
+            this.lblDontetlen.Size = new System.Drawing.Size(63, 19);
+            this.lblDontetlen.TabIndex = 0;
+            this.lblDontetlen.Text = "label1";
             // 
             // Form1
             // 
@@ -276,6 +360,9 @@ namespace KockaPoker
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.lblKijelzo);
+            this.Controls.Add(this.btnKovetkezoMenet);
+            this.Controls.Add(this.btnUjJatek);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbDobasokErtekei);
             this.Controls.Add(this.groupBox2);
@@ -329,6 +416,10 @@ namespace KockaPoker
         private System.Windows.Forms.Label lblGGyozelem;
         private System.Windows.Forms.Label lblJGyozelem;
         private System.Windows.Forms.Label lblMenetSzam;
+        private System.Windows.Forms.Button btnUjJatek;
+        private System.Windows.Forms.Button btnKovetkezoMenet;
+        private System.Windows.Forms.Label lblKijelzo;
+        private System.Windows.Forms.Label lblDontetlen;
     }
 }
 

@@ -19,6 +19,8 @@ namespace KockaPoker
         Jatekos j;
         Gep g;
 
+        private int OsszesMenet { get; set; }
+
         public Form1()
         {
             InitializeComponent();
@@ -36,16 +38,29 @@ namespace KockaPoker
             lblGepErtek.Text = $"2. játékos: {g.LeosztasErteke}";
             if (j.Pont > g.Pont)
             {
-                MessageBox.Show("Ember nyert");
+                lblKijelzo.Text = "Ember nyert";
+                j.Nyert++;
             }
             else if (j.Pont < g.Pont)
             {
-                MessageBox.Show("Gép nyert");
+                lblKijelzo.Text = "Gép nyert";
+                g.Nyert++;
             }
             else
             {
-                MessageBox.Show("Döntetlen");
+                lblKijelzo.Text = "Döntetlen";
+                j.Nyert++;
+                g.Nyert++;
             }
+            OsszesMenet++;
+            EredmenyekKiirasa();
+        }
+
+        private void EredmenyekKiirasa()
+        {
+            lblMenetSzam.Text = $"{OsszesMenet}. menet";
+            lblJGyozelem.Text = $"Játékos győzelem: {j.Nyert}";
+            lblGGyozelem.Text = $"Gép győzelem:     {g.Nyert}";
         }
 
         private void VezerlokBeallitasa()
@@ -53,16 +68,25 @@ namespace KockaPoker
             lblGepErtek.Text = "";
             lblJatekosErtek.Text = "";
             lblMenetSzam.Text = "";
-            lblJGyozelem.Text = "Játékos: 0";
-            lblGGyozelem.Text = "Gép:     0";
+            lblJGyozelem.Text = "Játékos:   0";
+            lblGGyozelem.Text = "Gép:       0";
+            lblDontetlen.Text = "Döntetlen: 0";
+            lblKijelzo.Text = "";
+            OsszesMenet = 0;
         }
 
         private void JatekosokBeallitasa()
         {
-            //List<int> kocka = new List<int>() { 2, 2, 3, 3, 4 };
             j = new Jatekos("Szerencsés Pista", jatekosKepek);
-            //j.LeosztasBeallitasa(kocka);
             g = new Gep("Gép", gepKepek);
+            
+            //Teszteléshez
+            //List<int> kocka = new List<int>() { 2, 2, 3, 3, 4 };
+            //j.LeosztasBeallitasa(kocka);
+
+            j.Nyert = 0;
+            g.Nyert = 0;
+
             j.KepekBeallitasa();
             g.KepekBeallitasa();
         }
@@ -85,6 +109,24 @@ namespace KockaPoker
         private void btnKilepes_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnUjJatek_Click(object sender, EventArgs e)
+        {
+            JatekosokBeallitasa();
+            btnKovetkezoMenet.Enabled = true;
+            VezerlokBeallitasa();
+        }
+
+        private void btnKovetkezoMenet_Click(object sender, EventArgs e)
+        {
+            j.UjLeosztas();
+            g.UjLeosztas();
+
+            j.KepekBeallitasa();
+            g.KepekBeallitasa();
+
+            Kiertekeles();
         }
     }
 }

@@ -28,6 +28,7 @@ namespace KockaPoker.SajatOsztalyok
         {
             Nev = nev;
             this.kockaKepek = kockaKepek;
+            Nyert = 0;
         }
 
         public void UjLeosztas()
@@ -83,5 +84,7 @@ namespace KockaPoker.SajatOsztalyok
         {
             get { return leosztas.Pont; }
         }
+
+        public int Nyert { get; set; }
     }
 }
